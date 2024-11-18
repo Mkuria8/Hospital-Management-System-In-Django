@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management</title>
+    
+    <link rel="stylesheet" href="{% static 'hospital/css/style.css' %}">
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+/>
+    <script src="https://kit.fontawesome.com/f5b6191954.js" crossorigin="anonymous"></script><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    
+</head>
+<body>
+
+  <nav>
+    <h3  class="text-primary fw-bold fs-2"> <i class="fa-solid fa-stethoscope"></i>&nbsp;</i>MEDI<span class="text-success">CARE</span></h3>
+    <ul>
+      <li><a href="{% url 'home'%}">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+      <li><a href="{% url 'login' %}">Login</a></li>
+    </ul>
+    <a href="{% url 'patientDashBoard'%}"><button>Book an Appointment</button></a>
+  </nav>
+ 
+<main>
+
+  
+  {% block hero %}{% endblock hero %}
+  {% block content %}{% endblock content %}
+</main>
+ <footer class="footer" >
+<div class="footerLinks">
+  <div><h4>Usefull Links</h4>
+    <ul>
+      <li><a href=""><span>About US</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href=""><span>Services</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href=""><span>Gallery</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href=""><span>Contact us</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      
+     
+    </ul>
+  </div>
+  <div>
+    <h4>Contact us</h4>
+    <p>Upper Hill, Nairobi, Kenya</p>
+    <p>Phone : +25476565000000</p>
+    <p>Email : info@Medicare.com</p>
+    <p>Working Hours : 24hrs</p>
+  </div>
+  
+</div>
+ <div>
+  <p class="text-center">Copyright || Medicare @2024 || All Right Reserved</p>
+ </div>
+ {% block script %}{% endblock script %}
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  // direction: 'vertical',
+  loop: true,
+  slidesPerView: 3,
+  delay:2000,
+  centerSlide: 'true',
+    fade: 'true',
+    // spaceBetween: 5,
+  // spaceBetween: 100,
+  
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
