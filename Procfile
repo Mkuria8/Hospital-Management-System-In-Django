@@ -1,1 +1,1 @@
-web: gunicorn HospitalManagement.wsgi:application
+web: python manage.py migrate && gunicorn HospitalManagement.wsgi:application
