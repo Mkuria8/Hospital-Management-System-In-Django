@@ -93,10 +93,9 @@ body {
 
 /* Contact Section  Start*/
 .contact {
-  background-color: #083b14 /* Light teal background */
+  background-color: #083b14; /* Light teal background */
   padding: 3rem 0;
-}
-
+ }
 .contact h2 {
   font-size: 2rem;
   font-weight: bold;
@@ -107,7 +106,6 @@ body {
   font-weight: 600; /* Make form labels bold */
   font-size: 1.1rem;
 }
-
 .contact input,
 .contact select,
 .contact textarea {
