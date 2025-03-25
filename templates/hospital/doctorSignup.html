@@ -1,41 +1,62 @@
 {% extends 'hospital/base.html' %}
 {% load static %}
+
 {% block style %}
-<style>
-
-</style>
+<!-- Material Kit and Bootstrap CSS for a modern look -->
+<link href="https://cdn.jsdelivr.net/npm/@themesberg/flowbite@1.4.0/dist/flowbite.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@themesberg/material-kit-pro@1.0.0/css/material-kit.min.css" rel="stylesheet" />
 {% endblock style %}
+
 {% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-12">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header bg-dark text-white text-center p-4">
+                    <h1 class="fw-bold">Doctor Registration</h1>
+                    <p class="lead">Please fill in the details to register</p>
+                </div>
+                <div class="card-body p-4">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-4">
+                            <!-- Userform fields -->
+                            {% for frm in userform %}
+                                <div class="form-floating mb-3">
+                                    {{ frm }}
+                                    <label for="{{ frm.id_for_label }}" class="form-label">{{ frm.label }}</label>
+                                    <div class="invalid-feedback">
+                                        {{ frm.errors }}
+                                    </div>
+                                </div>
+                            {% endfor %}
 
-<div class="container p-0 border border-info">
-    <div class="bg-dark p-2  text-white text-center">
-        <h1>Doctor Registration Form</h1>
-    </div>
-    <form action="" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="p-4 d-flex flex-wrap gap-3 m-4">
+                            <!-- Doctorform fields -->
+                            {% for frm in doctorform %}
+                                <div class="form-floating mb-3">
+                                    {{ frm }}
+                                    <label for="{{ frm.id_for_label }}" class="form-label">{{ frm.label }}</label>
+                                    <div class="invalid-feedback">
+                                        {{ frm.errors }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
 
-            {% for frm in userform %}
-            <div class="form-floating " style="width: 30rem;">
-                {{frm}}
-                {{frm.label_tag}}
-            {{frm.errors}}
+                        <!-- Submit Button -->
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-primary w-100 w-md-auto" type="submit">SignUp</button>
+                        </div>
+
+                        <!-- Login Link -->
+                        <div class="text-center mt-3">
+                            <p>Already have an account? <a href="{% url 'doctorlogin' %}" class="text-primary">Login here</a></p>
+                        </div>
+                    </form>
+                </div>
             </div>
-            {% endfor %}
-            {% for frm in doctorform %}
-        <div class="form-floating " style="width: 30rem;">
-            {{frm}}
-            {{frm.label_tag}}
-        {{frm.errors}}
         </div>
-        {% endfor %}
-        
-            
-            <button class="btn btn-primary w-25 me-4 ">SignUp</button>
-            <p>Already have as Account ? <a href="{% url 'doctorlogin' %}">Login here</a></p>
-        
-        </div>
-        
-    </form>
+    </div>
 </div>
 {% endblock content %}

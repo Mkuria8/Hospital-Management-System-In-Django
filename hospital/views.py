@@ -1,13 +1,14 @@
 from django.shortcuts import render,redirect
 from .forms import *
 from .models import *
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth.models import Group
 from django.contrib import messages
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.decorators import login_required,user_passes_test
 from rest_framework import viewsets
 from .serialzers import GallarySerialzers
+
 # Create your views here.
 
 def viewHome(request):
@@ -547,7 +548,6 @@ def ViewDoctorDashBoardAppointMentRemove(request,id):
    
     
     return redirect('doctorDashAppointMent')
-    
 
 # PATIENT DASHBOARD
 @login_required(login_url='patientlogin')

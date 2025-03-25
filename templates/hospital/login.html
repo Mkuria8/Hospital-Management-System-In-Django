@@ -2,28 +2,36 @@
 {% load static %}
 
 {% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <!-- Doctor Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-lg rounded-3">
+                <img src="{% static 'hospital/images/doctor.png' %}" class="card-img-top" alt="Doctor">
+                <div class="card-body text-center">
+                    <h2 class="card-title">Doctor</h2>
+                    <div class="d-flex justify-content-center">
+                        <a href="{% url 'doctorsignup' %}" class="btn btn-primary me-3">Register</a>
+                        <a href="{% url 'doctorlogin' %}" class="btn btn-outline-primary">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<!--div class="d-flex justify-content-around flex-wrap  text-center mt-5">
-   <a href="{% url 'adminlogin'%}">
-    <div class="card" style="width: 18rem;">
-        <img src="{% static 'hospital/images/admin.png' %}" class="card-img-top" alt="">
-        <h2>Admin</h2>
-        <div><a href="{% url 'adminsignup' %}" class="btn btn-primary me-4">Register</a>
-        <a href="{% url 'adminlogin' %}" class="btn btn-primary ">Login</a></div>
-    </div>
-   </a>
---->
-    <div class="card" style="width: 18rem;">
-        <img src="{% static 'hospital/images/doctor.png' %}" class="card-img-top" alt="">
-        <h2>Doctor</h2>
-        <div><a href="{% url 'doctorsignup' %}" class="btn btn-primary me-4">Register</a>
-            <a href="{% url 'doctorlogin' %}" class="btn btn-primary ">Login</a></div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <img src="{% static 'hospital/images/patient.jpg' %}" class="card-img-top   " alt="">
-        <h3 >Patient</h3>
-        <div><a href="{% url 'patientsignup' %}" class="btn btn-primary me-4">Register</a>
-            <a href="{% url 'patientlogin' %}" class="btn btn-primary ">Login</a></div>
+        <!-- Patient Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-lg rounded-3">
+                <img src="{% static 'hospital/images/patient.jpg' %}" class="card-img-top" alt="Patient">
+                <div class="card-body text-center">
+                    <h2 class="card-title">Patient</h2>
+                    <div class="d-flex justify-content-center">
+                        <a href="{% url 'patientsignup' %}" class="btn btn-primary me-3">Register</a>
+                        <a href="{% url 'patientlogin' %}" class="btn btn-outline-primary">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
 {% endblock content %}

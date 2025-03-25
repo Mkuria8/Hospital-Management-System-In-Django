@@ -11,6 +11,12 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+import cloudinary_storage
+
+#import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-mw9n4ohf9-=ve^bvb!^njd*b45v-4ikep3%i^lwjaps^k&o83z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -41,6 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'hospital',
     'rest_framework',
+    'cloudinary_storage',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -130,7 +138,12 @@ STATICFILES_DIRS = [
 
 ]
 
+#STATIC_URL = '/static/'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
 # MEDIA FILE SETTING
+
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR/'media/'
 
@@ -138,7 +151,7 @@ MEDIA_ROOT = BASE_DIR/'media/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+'''
 ALLOWED_HOSTS = ['Hospital-Management-System-In-Django.onrender.com']
 
 import environ
@@ -148,5 +161,28 @@ DATABASES = {
 }
 
 env = environ.Env()
-# reading .env file
+reading .env file
 environ.Env.read_env()
+
+
+# Email settings (Replace with your email provider's SMTP details)
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Example: Use your email provider
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your-email@gmail.com'  # Replace with your email
+EMAIL_HOST_PASSWORD = 'your-email-password'  # Replace with app password (not your real password)
+'
+'''
+
+
+
+# Cloudinary Configuration
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'medicare',
+    'API_KEY': '799373527799886',
+    'API_SECRET': 'FwWCKA1lLlocHAZ0x5hL0rjDzF8'
+}
+
+# Set Cloudinary as Default Storage for Media Files
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

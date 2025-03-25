@@ -1,5 +1,7 @@
 from django.urls import path
 from .views import *
+from django.contrib.auth import views as auth_views
+
 urlpatterns = [
 
 # HOME PAGE
@@ -79,4 +81,10 @@ urlpatterns = [
     path('patient-dash/',ViewPatientDashBoard,name='patientDashBoard'),
     path('patient-dash-appointment/',ViewPatientDashAppointment,name='patientDashBoardAppointment'),
     path('patient-book-appointment/',ViewPatientBookAppointment,name='patientBookAppointment'),
+#password reset
+    # Password reset URLs
+    path('reset_password/', auth_views.PasswordResetView.as_view(), name='password_reset'),
+    path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
 ]
