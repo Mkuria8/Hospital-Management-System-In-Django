@@ -10,10 +10,10 @@
     <div class="carousel-inner w-100">
       
       <div class="carousel-item">
-        <img src="{% static 'hospital/images/hero1.png' %}" class="d-block w-100" alt="...">
+        <img src="{% cloudinary_url 'hero1_lf1oty' resource_type='image'' %}" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="{% static 'hospital/images/bg.jpg' %}" class="d-block w-100" alt="...">
+        <img src="{% cloudinary_url 'bg_c1ebw7' resource_type='image'%}" class="d-block w-100" alt="...">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -29,14 +29,15 @@
   </div> {% endcomment %}
   <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
+      {% load cloudinary %}
       <div class="carousel-item active">
-        <img src="{% static 'hospital/images/hero1.png' %}" class="d-block w-100" alt="...">
+        <img src="{% cloudinary_url 'hero1_lf1oty' resource_type='image' %}" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="{% static 'hospital/images/bg.jpg' %}" class="d-block w-100" alt="...">
+        <img src="{% cloudinary_url 'bg_c1ebw7' resource_type='image' %}" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="{% static 'hospital/images/hero1.png' %}" class="d-block w-100" alt="...">
+        <img src="{% cloudinary_url 'bg_c1ebw7' resource_type='image'  %}" class="d-block w-100" alt="...">
       </div>
     </div>
 

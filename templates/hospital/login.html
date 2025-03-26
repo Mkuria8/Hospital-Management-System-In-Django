@@ -5,9 +5,10 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <!-- Doctor Card -->
+        {% load cloudinary %}
         <div class="col-md-4 mb-4">
             <div class="card shadow-lg rounded-3">
-                <img src="{% static 'hospital/images/doctor.png' %}" class="card-img-top" alt="Doctor">
+                <img src="{% cloudinary_url 'doctor_tp4lpe' resource_type='image'%}" class="card-img-top" alt="Doctor">
                 <div class="card-body text-center">
                     <h2 class="card-title">Doctor</h2>
                     <div class="d-flex justify-content-center">
@@ -21,7 +22,8 @@
         <!-- Patient Card -->
         <div class="col-md-4 mb-4">
             <div class="card shadow-lg rounded-3">
-                <img src="{% static 'hospital/images/patient.jpg' %}" class="card-img-top" alt="Patient">
+                {% load cloudinary %}
+                <img src="{% cloudinary_url 'patient_wcwmlt' resource_type='image'%}" class="card-img-top" alt="Patient">
                 <div class="card-body text-center">
                     <h2 class="card-title">Patient</h2>
                     <div class="d-flex justify-content-center">

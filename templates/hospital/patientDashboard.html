@@ -35,7 +35,8 @@
     <div class="container-fluid admin">
       <div class="admin-left">
         <div>
-          <img src="{% static 'hospital/images/patient.jpg' %}" alt="" />
+          {% load cloudinary %}
+          <img src="{% cloudinary_url 'patient_wcwmlt' resource_type='image' %}" alt="" />
           <h4>Welcome</h4>
           <h5>{{request.user.first_name}}</h5>
         </div>
