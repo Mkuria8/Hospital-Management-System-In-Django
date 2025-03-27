@@ -14,7 +14,9 @@ from pathlib import Path
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-import environ  # For environment variables
+import environ 
+import dj_database_url
+
 
 
 # Initialize environment variables
@@ -32,13 +34,14 @@ cloudinary.config(
     api_secret = CLOUDINARY_API_SECRET
 )
 
-DATABASES = {
-    'default': env.db('DATABASE_URL')
-}
 # Use Cloudinary for Media Storage
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-
+DATABASES = {
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL')
+    )
+}
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
